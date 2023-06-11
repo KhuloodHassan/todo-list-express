@@ -29,6 +29,12 @@ async function connect(){
         db = client.db(dbName)
         //- console log the connection confirmation
         console.log("Connected to MongoDB");
+
+        //- listens to the server on the port set
+        app.listen(process.env.PORT || PORT, () => {
+            //- console logs that the server is running
+            console.log(`Server running on port ${PORT}`)
+        })
     }
     //- catch error
     catch (error) {
@@ -150,8 +156,10 @@ app.delete('/deleteItem', async (req, res) => {
     }
 })
 
+/*
 //- listens to the server on the port set
 app.listen(process.env.PORT || PORT, () => {
     //- console logs that the server is running
     console.log(`Server running on port ${PORT}`)
 })
+*/
